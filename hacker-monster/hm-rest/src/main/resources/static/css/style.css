@@ -1,0 +1,133 @@
+/* font-family: 'Montserrat', sans-serif;
+    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Noto Serif', serif;
+    font-family: 'Lobster', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Patrick Hand', cursive;
+    font-family: 'Itim', cursive;
+    font-family: 'Saira', sans-serif; */
+html, body{
+    height: 100%;
+}
+.content, .boundary{
+    height: 100%;
+}
+.boundary .col-md-8{
+    height: 100%;
+}
+.left-side{
+    background-color: #51BDC0;
+    color: white;
+    padding: 0px;
+    height: 100%;
+    width: 200px;
+}
+.left-side .personal{
+    background-color: #444444;
+    height: 180px;
+    padding-top: 20px;
+    box-shadow: 0 8px 6px -6px black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.left-side .personal .name{    
+    height: 25px;
+}
+.left-side .personal .name .col-md-10{
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+    margin-top: -10px;
+}
+.left-side .personal .name .col-md-2 a{
+    float: right;
+}
+.left-side .personal a{
+    float: right;
+    color: white;
+}
+.left-side .personal a:hover{
+    color: #AAAAAA;
+}
+.left-side .personal .personal-infor{
+    height: 100px;
+    padding-top: 22px;
+    font-family: 'Saira', sans-serif;
+}
+.left-side .personal .personal-infor img{
+    height: 40px;
+    width: 40px;
+}
+.left-side .personal .setting{
+    height: 20px;
+}
+.left-side .navigation{
+    margin-top: 50px;
+    font-family: 'Saira', sans-serif;
+}
+.left-side .navigation ul {
+    list-style-type: none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.left-side .navigation ul li{
+    height: 50px;
+    border-bottom: 1px solid;
+    padding-top: 15px;
+}
+.left-side .navigation ul li a{
+    color: white;
+    text-decoration: none;
+    
+}
+.left-side .navigation ul li:hover{
+    background-color: #00CCCC;
+}
+.left-side .navigation .sub-topic{
+    box-shadow: 0 8px 6px -6px black;
+}
+/* RIGHT SIDE CSS */
+.right-side{
+    background-color: #60838C;
+    height: 100%;
+}
+.right-side .home{
+    color: white;
+}
+.right-side .home .header{
+    height: 50px;
+    padding-top: 10px;
+}
+.right-side .home .header i{
+    position: absolute;
+    color: gray;
+    margin-top: 7px;
+    margin-left: 2px;
+}
+.right-side .home .header .col-md-4 span{
+    font-size: 20px;
+    font-family: 'Saira', sans-serif;
+}
+.right-side .home .header input[type=text]{
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 20px;
+    width: 100%;
+    color: gray;
+}
+.footer{
+    background-color: yellow;
+}
+/* COMMON */
+.remove-bottom-border{
+    border-bottom: none !important;
+}
+#map{
+    height: 700px;
+ }
+/* SPECIAL CSS */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}
