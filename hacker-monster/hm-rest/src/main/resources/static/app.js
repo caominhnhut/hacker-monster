@@ -13,6 +13,8 @@ angular.module('myApp', [
   'myApp.register',
   'myApp.shopBy',
   'myApp.shoppingCart',
+  'myApp.searchCriteria',
+  'myApp.articleContent',
   'ui.bootstrap'
 ]).
 config(['$locationProvider', '$routeProvider', "$httpProvider", function($locationProvider, $routeProvider, $httpProvider) {
