@@ -53,7 +53,7 @@
             </li>
         </ul>
     </div>
-    <div class="content">
+    <div class="main-content">
         <div class="row">
             <div class="col-md-2 left-side" ng-hide="isFullScreen">
                 <div class="forum">
@@ -77,13 +77,13 @@
                 </div>
             </div>
             <div class="col-md-8 center-side" ng-style="isFullScreen == true ? {'width': '100%'} : {'width': '60%'}">
-                <!-- MAP -->
-                <div class="home">
+                <!-- SITE MAP -->
+                <div class="site-map">
                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;
                     <a href="#/">Cafe Dev</a>
                     <span ng-click="fullScreen()" class="glyphicon glyphicon-align-justify full-screen" aria-hidden="true"></span>
                 </div>
-                <!-- END MAP -->
+                <!-- END SITE MAP -->
                 <div ng-view></div>
             </div>
             <div class="col-md-2 right-side" ng-hide="isFullScreen">

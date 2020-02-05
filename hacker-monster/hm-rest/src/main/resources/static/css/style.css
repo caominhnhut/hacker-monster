@@ -56,7 +56,7 @@ input:focus{
 .header{
     background-image: url('../assets/banner.png');
     height: 320px;
-    background-position: center right;
+    background-position: center;
 }
 /*SEARCH*/
 .search{
@@ -105,19 +105,19 @@ input:focus{
 }
 /*CONTENT*/
 /*HOME*/
-.content{
+.main-content{
     background-color: #f0f0f0;
     padding-left: 10px;
     padding-top: 50px;
 }
-.content .home{
+.main-content .site-map{
     background-color: white;
     height: 50px;
     padding-left: 10px;
     line-height: 50px;
     margin-bottom: 20px;
 }
-.content .home .full-screen{
+.main-content .site-map .full-screen{
     float: right;
     margin-top: 15px;
     margin-right: 15px;
@@ -125,150 +125,49 @@ input:focus{
 }
 /*END HOME*/
 /*FEED*/
-.content ul{
+.home ul{
     list-style-type: none;
-    width:100%;
-    text-align:center;
-}
-.content .feeds{
-    margin-top: 50px;
-}
-.content .feeds .feed{
-    background-color: white;
-    padding: 10px 10px 10px 10px;
-}
-.content .feeds .li-feed{
-    margin-bottom: 20px;
-}
-.comments .avatar,
-.content .feeds .feed .user-info img{
-    vertical-align: middle;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-}
-.content .feeds .feed .user-info a,
-.comments a{
-    color: #03a9f4;
-}
-.content .feeds .feed .user-info .edit{
-    float: right;
-}
-.content .feeds .feed .feed-image{
-    width: 99%;
-}
-.comments{
-    margin-top: 20px;
-}
-.comments textarea{
-    width: 95%;
-    border-radius: 10px;
-    margin-left: 30px;
-        outline: none;
-    padding-left: 10px;
-    resize: none;
-    overflow: hidden;
-    min-height: 50px;
-    border: 1px solid #DDDDDD;
-}
-.comments .avatar-post{
-    vertical-align: middle;
-    height: 30px;
-    width: 30px !important;
-    border-radius: 50%;
-    position: absolute;
-}
-.comments button{
-    float: right;
-    margin-right: 15px;
-}
-.comments .comment{
-    background-color: #DDDDDD;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-.comments .col-md-1{
-    width: 6%;
-}
-.comments .reply{
-    float: right;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    margin-top: -20px;
-    color: blue;
-    cursor: pointer;
-}
-.comments .reply-input{
-    width: 96%;
-    margin: 20px 0px 20px 25px;
-}
-.comments .reply-btn{
-    margin-left: 30px;
-}
-.comments .show-reply{
-    margin-left: 55px;
-    color: #03a9f4;
-    cursor: pointer;
-}
-.comments .sub-comment{
-    margin-left: 50px;
-}
-.content .btn-new-topic {
-    height: 50px;
-    width: 100%;
-    padding-top: 10px;
-}
-.content .panel-title{
-    background-color: #03a9f4;
-    height: 50px;
-    color: white;
-    line-height: 50px;
-    text-align: center;
-}
-.content .panel-right-content{
-    background-color: white;
-    padding: 20px 0px 20px 50px;
-    margin-bottom: 20px;
-}
-.content .panel-right-content ul li{
-    margin-bottom: 20px;
-}
-.content .panel-right-content .red,
-.content .panel-right-content .yellow,
-.content .panel-right-content .green{
-    height: 10px;
-    width: 10px !important;
     padding: 0px;
-    border-radius: 50%;
-    margin-top: 5px;
 }
-.content .panel-right-content .red{
-    background-color: red;
-}
-.content .panel-right-content .yellow{
-    background-color: yellow;
-}
-.content .panel-right-content .green{
-    background-color: green;
-}
-.panel-right-content ol, ul{
-    padding-left: 0;
-}
-.panel-right-content ol li{
-    color: #999999;
+.home ul li{
     margin-bottom: 10px;
 }
-.panel-right-content ul li i{
-    float: right;
-    margin-right: 20px;
+.home .feed {
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
 }
-.panel-right-content ul li{
-    color: #999999;
+.home .feed .user-info{
+    height: 50px;
+    padding-top: 2px;
 }
-.remove-space{
-    height: 20px;
-    width: 100%;
+.home .feed .user-info .col-xs-1{
+    width: 4%;
+    padding: 0px;
+}
+.home .feed .user-info .col-xs-11{
+    padding: 0px;
+}
+.home .feed .user-info .col-xs-1 img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.home .feed .description{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dddddd;
+}
+.home .feed .activities{
+    height: 50px;
+    padding-top: 10px;
+}
+.home .feed .activities .col-xs-1{
+    width: 12%;
+    padding: 0px;
+}
+.home .feed .comments{
+    background-color: blue;
+    height: 50px;
 }
 /* FORUM */
 .forum h4,
@@ -367,37 +266,6 @@ input:focus{
 #modal-login h5{
     text-align: center;
     margin-top: 10px;
-}
-/* SUB TOPIC */
-.sub-topic .content{
-    background-color: white;
-    padding: 10px;
-}
-/* ASSIGNMENT */
-.assignment{
-    margin-top: 50px;
-}
-.assignment h4{
-    border-bottom: 1px solid;
-    color: #BBBBBB;
-}
-.assignment p{
-    border-bottom: 1px solid #bbbbbb;
-    padding-bottom: 50px;
-}
-/* SETTING */
-.setting img{
-    height: 200px;
-    width: 90%;
-}
-.setting .key{
-    width: 20%
-}
-.setting .value{
-    width: 80%;
-}
-.setting table tr{
-    height: 50px;
 }
 /* ADD NEW FEED */
 .add-new-feed textarea{
