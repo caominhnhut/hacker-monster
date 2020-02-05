@@ -14,6 +14,7 @@ angular.module('myApp', [
   'myApp.shopBy',
   'myApp.shoppingCart',
   'myApp.searchCriteria',
+  'myApp.resizeTextarea',
   'myApp.articleContent',
   'ui.bootstrap'
 ]).

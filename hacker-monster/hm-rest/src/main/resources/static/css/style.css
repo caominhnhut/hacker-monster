@@ -104,11 +104,66 @@ input:focus{
     padding: 5px;
 }
 /*CONTENT*/
+.main-content .panel-title{
+    background-color: #03a9f4;
+    height: 50px;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+}
+.main-content .panel-right-content{
+    background-color: white;
+    padding: 20px 0px 20px 50px;
+    margin-bottom: 20px;
+}
+.main-content .panel-right-content ul li{
+    margin-bottom: 20px;
+}
+.main-content .panel-right-content .red,
+.main-content .panel-right-content .yellow,
+.main-content .panel-right-content .green{
+    height: 10px;
+    width: 10px !important;
+    padding: 0px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+.main-content .panel-right-content .red{
+    background-color: red;
+}
+.main-content .panel-right-content .yellow{
+    background-color: yellow;
+}
+.main-content .panel-right-content .green{
+    background-color: green;
+}
+.panel-right-content ol, ul{
+    padding-left: 0;
+}
+.panel-right-content ol li{
+    color: #999999;
+    margin-bottom: 10px;
+}
+.panel-right-content ul li i{
+    float: right;
+    margin-right: 20px;
+}
+.panel-right-content ul li{
+    color: #999999;
+}
+.remove-space{
+    height: 20px;
+    width: 100%;
+}
 /*HOME*/
 .main-content{
     background-color: #f0f0f0;
     padding-left: 10px;
     padding-top: 50px;
+}
+.main-content ul{
+    list-style-type: none;
+    padding: 0px;
 }
 .main-content .site-map{
     background-color: white;
@@ -142,7 +197,7 @@ input:focus{
     padding-top: 2px;
 }
 .home .feed .user-info .col-xs-1{
-    width: 4%;
+    width: 6%;
     padding: 0px;
 }
 .home .feed .user-info .col-xs-11{
@@ -157,17 +212,38 @@ input:focus{
     padding-bottom: 20px;
     border-bottom: 1px solid #dddddd;
 }
+.home .feed .description img{
+    width: 100%;
+}
 .home .feed .activities{
     height: 50px;
     padding-top: 10px;
 }
 .home .feed .activities .col-xs-1{
-    width: 12%;
+    width: 13%;
     padding: 0px;
 }
+.home .feed .comment-box{
+    padding-bottom: 10px;
+}
+.home .feed .comment-box textarea{
+    width: 100%;
+    border-radius: 10px;
+   	outline: none;
+    resize: none;
+    overflow: hidden;
+    min-height: 35px;
+    border: 1px solid #DDDDDD;
+    padding-left: 5px;
+}
 .home .feed .comments{
-    background-color: blue;
-    height: 50px;
+    padding-bottom: 5px;
+}
+.home .feed .comments ul li{
+    background-color: #F3F6F8;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 /* FORUM */
 .forum h4,
@@ -291,6 +367,7 @@ input:focus{
     width: 50%;
     margin-left: 25%;
     padding-top: 15px;
+    text-align: center;
 }
 .left-side ul li:hover{
     background-color: #DDDDDD;
@@ -522,20 +599,9 @@ background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25
     width: 100%;
 }
 /* END ADD NEW FEED */
-.wrapper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.showmore{
-    background-color: #03a9f4;
-    color: white;
-    line-height: 25px;
+.show-more{
+    margin-bottom: 10px;
     text-align: center;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
 }
 /* CHAT */
 .chat{
