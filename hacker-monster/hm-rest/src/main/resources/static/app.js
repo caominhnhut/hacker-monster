@@ -7,15 +7,18 @@ angular.module('myApp', [
   'myApp.home',
   'myApp.products',
   'myApp.location',
-  'myApp.stories',
-  'myApp.productDetail',
+  'myApp.topic',
+  'myApp.about',
   'myApp.login',
   'myApp.register',
   'myApp.shopBy',
   'myApp.shoppingCart',
   'myApp.searchCriteria',
   'myApp.resizeTextarea',
-  'myApp.articleContent',
+  'myApp.article',
+  'myApp.feed',
+  'myApp.course',
+  'myApp.document',
   'ui.bootstrap'
 ]).
 config(['$locationProvider', '$routeProvider', "$httpProvider", function($locationProvider, $routeProvider, $httpProvider) {
