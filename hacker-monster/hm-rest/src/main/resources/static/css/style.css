@@ -191,17 +191,28 @@ input:focus{
     padding-left: 20px;
     padding-right: 20px;
 }
+.topic .topic-info,
 .home .feed .user-info{
     height: 50px;
     padding-top: 2px;
 }
+.topic .topic-info{
+    border-bottom: 1px dashed #cccccc;
+}
+.topic .topic-info .job,
+.home .feed .user-info .job{
+    color: #cccccc;
+}
+.topic .topic-info .col-xs-1,
 .home .feed .user-info .col-xs-1{
     width: 6%;
     padding: 0px;
 }
+.topic .topic-info .col-xs-11,
 .home .feed .user-info .col-xs-11{
     padding: 0px;
 }
+.topic .topic-info .col-xs-1 img,
 .home .feed .user-info .col-xs-1 img{
     width: 40px;
     height: 40px;
@@ -305,4 +316,15 @@ input:focus{
     padding-top: 5px;
     height: 35px;
     border-bottom: 1px solid #dddddd;
+}
+/* TOPIC */
+.topic{
+    background-color: white;
+    -webkit-box-shadow: -5px 8px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -5px 8px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: -5px 8px 15px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+}
+.topic ul li:hover{
+    background-color: #dddddd;
 }
