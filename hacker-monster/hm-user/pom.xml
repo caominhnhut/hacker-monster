@@ -10,4 +10,12 @@
   </parent>
 
   <artifactId>hm-user</artifactId>
+
+  <dependencies>
+    <dependency>
+      <groupId>gls.hm</groupId>
+      <artifactId>hm-persistent</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
 </project>

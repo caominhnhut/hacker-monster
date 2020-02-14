@@ -8,17 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.gls.hm.persistent.entity.common.BaseTimestamp;
+
 @Entity
 @Table(name = "users")
 @SequenceGenerator(name = "users_seq", initialValue = 1)
-public class User
+public class User extends BaseTimestamp
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq")
 	private Long id;
 
-	@Column(name = "user_name")
-	private String username;
+	@Column(name = "email")
+	private String email;
 
 	@Column(name = "password")
 	private String password;
@@ -33,14 +35,14 @@ public class User
 		this.id = id;
 	}
 
-	public String getUsername()
+	public String getEmail()
 	{
-		return username;
+		return email;
 	}
 
-	public void setUsername(String username)
+	public void setEmail(String email)
 	{
-		this.username = username;
+		this.email = email;
 	}
 
 	public String getPassword()
