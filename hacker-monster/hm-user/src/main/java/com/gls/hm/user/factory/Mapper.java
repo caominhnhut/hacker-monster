@@ -15,7 +15,10 @@ public class Mapper
 	};
 
 	private static Function<User, RegisteredUser> userEntityToRegisteredUser = userEntity -> {
-		return new RegisteredUser(userEntity.getId(), userEntity.getEmail(), userEntity.getPassword());
+		RegisteredUser registeredUser = new RegisteredUser();
+		registeredUser.setId(userEntity.getId());
+		registeredUser.setEmail(userEntity.getEmail());
+		return registeredUser;
 	};
 
 	public static User from(RegisteredUser userRequest)

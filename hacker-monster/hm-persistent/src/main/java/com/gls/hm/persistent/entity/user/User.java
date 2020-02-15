@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.checkerframework.common.aliasing.qual.Unique;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.gls.hm.persistent.entity.common.BaseTimestamp;
 
 @Entity
@@ -19,10 +22,10 @@ public class User extends BaseTimestamp
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq")
 	private Long id;
 
-	@Column(name = "email")
+	@Column(name = "email", unique = true)
 	private String email;
 
-	@Column(name = "password")
+	@Column(name = "password", nullable = false)
 	private String password;
 
 	public Long getId()

@@ -2,6 +2,8 @@ package com.gls.hm.rest.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +35,7 @@ public class UserController
 
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<RegisteredUser> register(@RequestBody RegisteredUser userDto)
+	public ResponseEntity<RegisteredUser> register(@Valid @RequestBody RegisteredUser userDto)
 	{
 		userDto = userService.create(userDto);
 		return new ResponseEntity<>(userDto, HttpStatus.CREATED);

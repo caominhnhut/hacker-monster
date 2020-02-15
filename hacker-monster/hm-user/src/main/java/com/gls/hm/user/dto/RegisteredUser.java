@@ -1,10 +1,29 @@
 package com.gls.hm.user.dto;
 
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.gls.hm.user.annotation.ValidEmail;
+import com.gls.hm.user.annotation.ValidPassword;
+import com.gls.hm.user.annotation.ValidPasswordMatches;
+
+@ValidPasswordMatches
 public class RegisteredUser
 {
 	private Long id;
+
+	@ValidEmail
+	@NotEmpty(message = "Please enter the email")
 	private String email;
+
+	@NotEmpty(message = "Please enter the password")
+	@Size(min = 8, max = 20, message = "The length of password should have from 8 to 20 letters")
+	@ValidPassword
 	private String password;
+
+	@NotEmpty(message = "Please enter the password for conformation")
+	private String confirmedPassword;
 
 	public RegisteredUser()
 	{
@@ -46,5 +65,15 @@ public class RegisteredUser
 	public void setPassword(String password)
 	{
 		this.password = password;
+	}
+
+	public String getConfirmedPassword()
+	{
+		return confirmedPassword;
+	}
+
+	public void setConfirmedPassword(String confirmedPassword)
+	{
+		this.confirmedPassword = confirmedPassword;
 	}
 }
