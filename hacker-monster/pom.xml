@@ -30,6 +30,7 @@
     <module>hm-user</module>
     <module>hm-topic</module>
     <module>hm-rest</module>
+    <module>hm-liquibase</module>
   </modules>
 
   <dependencies>

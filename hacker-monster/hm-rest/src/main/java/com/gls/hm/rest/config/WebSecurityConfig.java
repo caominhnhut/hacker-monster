@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.gls.hm.rest.factory.jwt.TokenHelper;
-import com.gls.hm.user.impl.UserDetailService;
+import com.gls.hm.user.service.impl.UserDetailService;
 
 @Configuration
 @EnableWebSecurity

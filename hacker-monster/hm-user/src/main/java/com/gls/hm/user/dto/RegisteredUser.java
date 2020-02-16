@@ -1,9 +1,13 @@
 package com.gls.hm.user.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.gls.hm.persistent.entity.user.Authority;
 import com.gls.hm.user.annotation.ValidEmail;
 import com.gls.hm.user.annotation.ValidPassword;
 import com.gls.hm.user.annotation.ValidPasswordMatches;
@@ -24,6 +28,8 @@ public class RegisteredUser
 
 	@NotEmpty(message = "Please enter the password for conformation")
 	private String confirmedPassword;
+
+	private List<String> authorities = new ArrayList<>();
 
 	public RegisteredUser()
 	{
@@ -75,5 +81,10 @@ public class RegisteredUser
 	public void setConfirmedPassword(String confirmedPassword)
 	{
 		this.confirmedPassword = confirmedPassword;
+	}
+
+	public List<String> getAuthorities()
+	{
+		return authorities;
 	}
 }

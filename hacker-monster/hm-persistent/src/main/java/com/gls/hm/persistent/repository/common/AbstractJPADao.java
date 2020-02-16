@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 public abstract class AbstractJPADao<T extends Serializable> implements GenericJPADao<T>
 {
 	@PersistenceContext
-	private EntityManager em;
+	protected EntityManager em;
 
 	private Class<T> clazz;
 

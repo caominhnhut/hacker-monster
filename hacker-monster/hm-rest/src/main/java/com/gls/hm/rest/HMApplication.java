@@ -23,6 +23,7 @@ import com.gls.hm.rest.factory.contant.PackageConstants;
 		PackageConstants.PERSISTENT_ENTITY
 })
 @PropertySource("classpath:persistent.properties")
+@PropertySource("classpath:liquibase.properties")
 public class HMApplication
 {
 	public static void main(String[] args)

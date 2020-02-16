@@ -2,6 +2,8 @@ package com.gls.hm.user.factory;
 
 import java.util.function.Function;
 
+import com.gls.hm.persistent.entity.user.Authority;
+import com.gls.hm.persistent.entity.user.AuthorityName;
 import com.gls.hm.persistent.entity.user.User;
 import com.gls.hm.user.dto.RegisteredUser;
 
@@ -11,6 +13,11 @@ public class Mapper
 		User user = new User();
 		user.setEmail(registeredUser.getEmail());
 		user.setPassword(registeredUser.getPassword());
+		registeredUser.getAuthorities().forEach(name -> {
+			Authority authority = new Authority();
+			authority.setName(AuthorityName.valueOf(name));
+			user.getRoles().add(authority);
+		});
 		return user;
 	};
 
