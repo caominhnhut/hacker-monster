@@ -2,6 +2,7 @@ package com.gls.hm.persistent.repository.user;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -11,17 +12,18 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.gls.hm.persistent.entity.user.Authority;
-import com.gls.hm.persistent.entity.user.User;
-import com.gls.hm.persistent.repository.common.AbstractJPADao;
+import com.gls.hm.persistent.entity.user.UserEntity;
+import com.gls.hm.persistent.repository.common.AbstractGenericDao;
 
-@Repository
+@Repository("userRepository")
 @Transactional
-public class UserRepositoryImpl extends AbstractJPADao<User> implements UserRepository
+public class UserRepositoryImpl extends AbstractGenericDao<UserEntity> implements UserRepository
 {
-	@Override
-	public List<User> getByCriteria()
+
+	@PostConstruct
+	public void init()
 	{
-		return null;
+		super.setClazz(UserEntity.class);
 	}
 
 	@Override
@@ -33,5 +35,24 @@ public class UserRepositoryImpl extends AbstractJPADao<User> implements UserRepo
 		cq.select(authority);
 		TypedQuery<Authority> query = em.createQuery(cq);
 		return query.getResultList();
+	}
+
+	@Override
+	public UserEntity findByEmail(String email)
+	{
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<UserEntity> cq = cb.createQuery(UserEntity.class);
+		Root<UserEntity> user = cq.from(UserEntity.class);
+		cq.select(user);
+		cq.where(cb.equal(user.get("email"), email));
+		TypedQuery<UserEntity> query = em.createQuery(cq);
+
+		List<UserEntity> users = query.getResultList();
+		if (users == null || users.isEmpty())
+		{
+			return new UserEntity();
+		}
+
+		return users.get(0);
 	}
 }

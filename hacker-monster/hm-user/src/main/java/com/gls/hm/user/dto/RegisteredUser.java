@@ -7,7 +7,6 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.gls.hm.persistent.entity.user.Authority;
 import com.gls.hm.user.annotation.ValidEmail;
 import com.gls.hm.user.annotation.ValidPassword;
 import com.gls.hm.user.annotation.ValidPasswordMatches;

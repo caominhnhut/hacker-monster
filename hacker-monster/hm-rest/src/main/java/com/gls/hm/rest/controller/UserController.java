@@ -30,7 +30,7 @@ public class UserController
 	@ResponseBody
 	public List<User> findUser()
 	{
-		return userService.getAll();
+		return userService.findAll();
 	}
 
 	@RequestMapping(value = "register", method = RequestMethod.POST)

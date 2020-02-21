@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.gls.hm.persistent.entity.user.UserEntity;
 import com.gls.hm.rest.factory.jwt.TokenHelper;
 import com.gls.hm.rest.model.AuthenticationRequest;
 import com.gls.hm.rest.model.AuthenticationResponse;
-import com.gls.hm.user.service.impl.UserDetailService;
-import com.gls.hm.user.model.User;
 
 @Controller
 public class AuthenticationController
@@ -25,9 +24,6 @@ public class AuthenticationController
 
 	@Autowired
 	private TokenHelper tokenHelper;
-
-	@Autowired
-	private UserDetailService userDetailsService;
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest authenticationRequest) throws Exception
@@ -45,7 +41,7 @@ public class AuthenticationController
 		// Inject into security context
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 
-		User user = (User) authentication.getPrincipal();
+		UserEntity user = (UserEntity) authentication.getPrincipal();
 
 		final String token = tokenHelper.generateToken(user.getUsername());
 

@@ -1,7 +1,6 @@
 package com.gls.hm.user.service.impl;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.gls.hm.persistent.entity.user.Authority;
+import com.gls.hm.persistent.entity.user.UserEntity;
 import com.gls.hm.persistent.repository.user.UserRepository;
 import com.gls.hm.user.dto.RegisteredUser;
 import com.gls.hm.user.factory.Mapper;
@@ -34,15 +34,16 @@ public class UserServiceImpl implements UserService
 	private PasswordEncoder passwordEncoder;
 
 	@Override
-	public List<User> getAll()
+	public List<User> findAll()
 	{
-		return Arrays.asList(new User("nhut-nguyen", "nhut.nguyen@gmail.com"), new User("vi-huynh", "vihuynh@gmail.com"));
+		List<UserEntity> users = userRepository.findAll();
+		return users.stream().map(Mapper::convert).collect(Collectors.toList());
 	}
 
 	@Override
 	public RegisteredUser create(RegisteredUser registeredUser)
 	{
-		com.gls.hm.persistent.entity.user.User user = Mapper.from(registeredUser);
+		UserEntity user = Mapper.from(registeredUser);
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 
 		List<Authority> authorities = userRepository.getAllAuthorities();

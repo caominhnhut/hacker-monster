@@ -7,6 +7,6 @@ import com.gls.hm.user.model.User;
 
 public interface UserService
 {
-	List<User> getAll();
+	List<User> findAll();
 	RegisteredUser create(RegisteredUser registeredUser);
 }

@@ -26,7 +26,7 @@ import com.gls.hm.persistent.entity.common.BaseTimestamp;
 @Entity
 @Table(name = "users")
 @SequenceGenerator(name = "users_seq", initialValue = 1)
-public class User extends BaseTimestamp implements UserDetails
+public class UserEntity extends BaseTimestamp implements UserDetails
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_seq")

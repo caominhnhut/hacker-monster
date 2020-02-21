@@ -1,9 +1,8 @@
 package com.gls.hm.persistent.repository.common;
 
-import java.io.Serializable;
 import java.util.List;
 
-public interface GenericJPADao<T extends Serializable>
+public interface GenericDao<T>
 {
 	T findOne(long id);
 

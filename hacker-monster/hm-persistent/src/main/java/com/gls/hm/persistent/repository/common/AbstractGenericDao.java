@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.transaction.annotation.Transactional;
 
-public abstract class AbstractJPADao<T extends Serializable> implements GenericJPADao<T>
+public abstract class AbstractGenericDao<T> implements GenericDao<T>
 {
 	@PersistenceContext
 	protected EntityManager em;
@@ -25,7 +25,7 @@ public abstract class AbstractJPADao<T extends Serializable> implements GenericJ
 		return em.find(clazz, id);
 	}
 
-	public List findAll()
+	public List<T> findAll()
 	{
 		return em.createQuery("from " + clazz.getName()).getResultList();
 	}
