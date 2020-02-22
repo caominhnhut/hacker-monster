@@ -31,6 +31,7 @@
     <module>hm-topic</module>
     <module>hm-rest</module>
     <module>hm-liquibase</module>
+    <module>hm-integration-test</module>
   </modules>
 
   <dependencies>
