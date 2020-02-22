@@ -2,9 +2,11 @@ package com.gls.hm.rest.controller;
 
 import java.util.List;
 
+import com.gls.hm.user.dto.RegisteredUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,4 +28,12 @@ public class UserController
 	{
 		return userService.getAll();
 	}
+
+	@RequestMapping(value="register", method = RequestMethod.POST)
+	@ResponseBody
+	public RegisteredUser register(@RequestBody RegisteredUser registeredUser){
+		return userService.create(registeredUser);
+	}
+
+
 }
