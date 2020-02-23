@@ -16,7 +16,10 @@ import org.jbehave.core.steps.InstanceStepsFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-public class TestRunner extends JUnitStories
+import com.gls.hm.integrationtest.demo.DemoStep;
+import com.gls.hm.integrationtest.user.UserStep;
+
+public class IntegrationTest extends JUnitStories
 {
 	@Autowired
 	private ApplicationContext applicationContext;
@@ -37,12 +40,12 @@ public class TestRunner extends JUnitStories
 	@Override
 	public InjectableStepsFactory stepsFactory()
 	{
-		return new InstanceStepsFactory(configuration(), new TestStep());
+		return new InstanceStepsFactory(configuration(), new DemoStep(), new UserStep());
 	}
 
 	@Override
 	protected List<String> storyPaths()
 	{
-		return new StoryFinder().findPaths(CodeLocations.codeLocationFromClass(this.getClass()), "**/*.story", "**/excluded*.story");
+		return new StoryFinder().findPaths(CodeLocations.codeLocationFromClass(this.getClass()), "**/*.story", "**/excluded_*.story");
 	}
 }

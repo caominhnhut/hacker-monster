@@ -1,4 +1,4 @@
-package com.gls.hm.integrationtest;
+package com.gls.hm.integrationtest.demo;
 
 public class MyCalculation
 {
