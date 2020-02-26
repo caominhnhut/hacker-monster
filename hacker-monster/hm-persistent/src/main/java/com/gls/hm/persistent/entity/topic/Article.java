@@ -1,17 +1,13 @@
 package com.gls.hm.persistent.entity.topic;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -19,26 +15,28 @@ import com.gls.hm.persistent.entity.common.BaseTimestamp;
 import com.gls.hm.persistent.entity.user.UserEntity;
 
 @Entity
-@Table(name = "topic")
-@SequenceGenerator(name = "topic_seq", initialValue = 1)
-public class Topic extends BaseTimestamp
+@Table(name = "article")
+@SequenceGenerator(name = "article_seq", initialValue = 1)
+public class Article extends BaseTimestamp
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "topic_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "article_seq")
 	private Long id;
 
 	@Column(name = "name")
 	private String name;
 
 	@Column(name = "description")
+	@Lob
 	private String description;
 
 	@ManyToOne
-	@JoinColumn(name = "owner_id")
+	@JoinColumn(name="owner_id")
 	private UserEntity owner;
 
-	@OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
-	private List<Article> articles = new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name="topic_id")
+	private Topic topic;
 
 	public Long getId()
 	{
@@ -80,8 +78,13 @@ public class Topic extends BaseTimestamp
 		this.owner = owner;
 	}
 
-	public List<Article> getArticles()
+	public Topic getTopic()
 	{
-		return articles;
+		return topic;
+	}
+
+	public void setTopic(Topic topic)
+	{
+		this.topic = topic;
 	}
 }

@@ -2,7 +2,10 @@ package com.gls.hm.persistent.entity.user;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,6 +26,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.gls.hm.persistent.entity.common.BaseTimestamp;
+import com.gls.hm.persistent.entity.topic.Article;
+import com.gls.hm.persistent.entity.topic.Topic;
 
 @Entity
 @Table(name = "users")
@@ -43,6 +49,12 @@ public class UserEntity extends BaseTimestamp implements UserDetails
 			joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
 			inverseJoinColumns = @JoinColumn(name = "authority_id", referencedColumnName = "id"))
 	private List<Authority> authorities = new ArrayList<>();
+
+	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+	private List<Topic> topics = new ArrayList<>();
+
+	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+	private List<Article> articles = new ArrayList<>();
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities()
@@ -118,5 +130,15 @@ public class UserEntity extends BaseTimestamp implements UserDetails
 	public List<Authority> getRoles()
 	{
 		return this.authorities;
+	}
+
+	public List<Topic> getTopics()
+	{
+		return topics;
+	}
+
+	public List<Article> getArticles()
+	{
+		return articles;
 	}
 }
