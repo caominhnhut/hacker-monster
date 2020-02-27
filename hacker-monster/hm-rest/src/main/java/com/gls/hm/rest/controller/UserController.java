@@ -16,24 +16,24 @@ import com.gls.hm.user.service.UserService;
 
 @Controller
 @RequestMapping(value = "/user/")
-public class UserController
-{
-	@Autowired
-	private UserService userService;
+public class UserController {
+    @Autowired
+    private UserService userService;
 
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(value = "all", method = RequestMethod.GET)
-	@ResponseBody
-	public List<User> findUser()
-	{
-		return userService.getAll();
-	}
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @RequestMapping(value = "all", method = RequestMethod.GET)
+    @ResponseBody
+    public List<User> findUser() {
+        return userService.getAll();
+    }
 
-	@RequestMapping(value="register", method = RequestMethod.POST)
-	@ResponseBody
-	public RegisteredUser register(@RequestBody RegisteredUser registeredUser){
-		return userService.create(registeredUser);
-	}
-
-
+    @RequestMapping(value = "register", method = RequestMethod.POST)
+    @ResponseBody
+    public RegisteredUser register(@RequestBody RegisteredUser registeredUser) {
+        RegisteredUser  registeredUser1=new RegisteredUser();
+        if(registeredUser.checkPassword()==true){
+            registeredUser1=userService.create(registeredUser);
+        }
+        return registeredUser1;
+    }
 }
