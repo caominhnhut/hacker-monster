@@ -2,9 +2,9 @@ package com.gls.hm.user.factory;
 
 import java.util.function.Function;
 
-import com.gls.hm.persistent.entity.user.Authority;
-import com.gls.hm.persistent.entity.user.AuthorityName;
-import com.gls.hm.persistent.entity.user.UserEntity;
+import com.gls.hm.persistent.entity.Authority;
+import com.gls.hm.persistent.entity.AuthorityName;
+import com.gls.hm.persistent.entity.UserEntity;
 import com.gls.hm.user.dto.RegisteredUser;
 import com.gls.hm.user.model.User;
 

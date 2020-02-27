@@ -12,8 +12,8 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.gls.hm.persistent.entity.user.Authority;
-import com.gls.hm.persistent.entity.user.UserEntity;
+import com.gls.hm.persistent.entity.Authority;
+import com.gls.hm.persistent.entity.UserEntity;
 import com.gls.hm.persistent.repository.user.UserRepository;
 import com.gls.hm.user.dto.RegisteredUser;
 import com.gls.hm.user.factory.Mapper;

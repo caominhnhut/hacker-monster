@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.gls.hm.persistent.entity.user.UserEntity;
+import com.gls.hm.persistent.entity.UserEntity;
 import com.gls.hm.rest.factory.jwt.TokenHelper;
 import com.gls.hm.rest.model.AuthenticationRequest;
 import com.gls.hm.rest.model.AuthenticationResponse;

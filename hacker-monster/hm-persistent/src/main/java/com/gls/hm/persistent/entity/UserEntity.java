@@ -1,11 +1,8 @@
-package com.gls.hm.persistent.entity.user;
+package com.gls.hm.persistent.entity;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -21,13 +18,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
-import com.gls.hm.persistent.entity.common.BaseTimestamp;
-import com.gls.hm.persistent.entity.topic.Article;
-import com.gls.hm.persistent.entity.topic.Topic;
 
 @Entity
 @Table(name = "users")
@@ -44,6 +36,9 @@ public class UserEntity extends BaseTimestamp implements UserDetails
 	@Column(name = "password", nullable = false)
 	private String password;
 
+	@Column(name = "description", nullable = true)
+	private String description;
+
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "authority_role",
 			joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
@@ -55,6 +50,12 @@ public class UserEntity extends BaseTimestamp implements UserDetails
 
 	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
 	private List<Article> articles = new ArrayList<>();
+
+	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+	private List<Feed> feeds = new ArrayList<>();
+
+	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
+	private List<Comment> comments = new ArrayList<>();
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities()
@@ -122,6 +123,16 @@ public class UserEntity extends BaseTimestamp implements UserDetails
 		return password;
 	}
 
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
+	}
+
 	public void setAuthorities(List<Authority> authorities)
 	{
 		this.authorities = authorities;
@@ -140,5 +151,15 @@ public class UserEntity extends BaseTimestamp implements UserDetails
 	public List<Article> getArticles()
 	{
 		return articles;
+	}
+
+	public List<Feed> getFeeds()
+	{
+		return feeds;
+	}
+
+	public List<Comment> getComments()
+	{
+		return comments;
 	}
 }

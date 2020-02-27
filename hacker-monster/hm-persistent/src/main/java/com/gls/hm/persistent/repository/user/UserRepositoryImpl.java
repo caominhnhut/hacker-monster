@@ -11,8 +11,8 @@ import javax.persistence.criteria.Root;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gls.hm.persistent.entity.user.Authority;
-import com.gls.hm.persistent.entity.user.UserEntity;
+import com.gls.hm.persistent.entity.Authority;
+import com.gls.hm.persistent.entity.UserEntity;
 import com.gls.hm.persistent.repository.common.AbstractGenericDao;
 
 @Repository("userRepository")

@@ -1,4 +1,4 @@
-package com.gls.hm.persistent.entity.user;
+package com.gls.hm.persistent.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

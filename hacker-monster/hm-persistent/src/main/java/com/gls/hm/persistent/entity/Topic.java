@@ -1,4 +1,4 @@
-package com.gls.hm.persistent.entity.topic;
+package com.gls.hm.persistent.entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import com.gls.hm.persistent.entity.common.BaseTimestamp;
-import com.gls.hm.persistent.entity.user.UserEntity;
 
 @Entity
 @Table(name = "topic")
