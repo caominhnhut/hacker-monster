@@ -26,12 +26,13 @@
   </properties>
 
   <modules>
-  	<module>hm-persistent</module>
+    <module>hm-persistent</module>
     <module>hm-user</module>
     <module>hm-topic</module>
     <module>hm-rest</module>
     <module>hm-liquibase</module>
     <module>hm-integration-test</module>
+    <module>hm-feed</module>
   </modules>
 
   <dependencies>

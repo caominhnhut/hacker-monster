@@ -25,21 +25,21 @@ public class FeedEntity extends BaseTimestamp
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "feed_seq")
 	private Long id;
 
-	@Column(name = "description")
+	@Column(name = "description", nullable = false)
 	@Lob
 	private String description;
 
 	@Column(name = "num_of_like")
-	private Long numOfLike;
+	private Long numOfLike = 0L;
 
 	@Column(name = "num_of_sharing")
-	private Long numOfSharing;
+	private Long numOfSharing = 0L;
 
 	@ManyToOne
 	@JoinColumn(name = "owner_id")
 	private UserEntity owner;
 
-	@OneToMany(mappedBy = "feed", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "feed", cascade = CascadeType.REMOVE)
 	private List<CommentEntity> comments = new ArrayList<>();
 
 	public Long getId()

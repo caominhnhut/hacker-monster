@@ -79,6 +79,11 @@
       <artifactId>hm-topic</artifactId>
       <version>${parent.version}</version>
     </dependency>
+    <dependency>
+      <groupId>gls.hm</groupId>
+      <artifactId>hm-feed</artifactId>
+      <version>${parent.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
