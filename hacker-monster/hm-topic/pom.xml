@@ -11,5 +11,12 @@
 
   <artifactId>hm-topic</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>gls.hm</groupId>
+      <artifactId>hm-persistent</artifactId>
+      <version>${parent.version}</version>
+    </dependency>
+  </dependencies>
 
 </project>

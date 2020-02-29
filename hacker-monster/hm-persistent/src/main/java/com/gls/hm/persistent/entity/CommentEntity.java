@@ -1,9 +1,5 @@
 package com.gls.hm.persistent.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,21 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "article")
-@SequenceGenerator(name = "article_seq", initialValue = 1)
-public class Article extends BaseTimestamp
+@Table(name = "comment")
+@SequenceGenerator(name = "comment_seq", initialValue = 1)
+public class CommentEntity extends BaseTimestamp
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "article_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comment_seq")
 	private Long id;
-
-	@Column(name = "name")
-	private String name;
 
 	@Column(name = "description")
 	@Lob
@@ -37,11 +29,12 @@ public class Article extends BaseTimestamp
 	private UserEntity owner;
 
 	@ManyToOne
-	@JoinColumn(name = "topic_id")
-	private Topic topic;
+	@JoinColumn(name = "feed_id")
+	private FeedEntity feed;
 
-	@OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-	private List<Comment> comments = new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name = "article_id")
+	private ArticleEntity article;
 
 	public Long getId()
 	{
@@ -51,16 +44,6 @@ public class Article extends BaseTimestamp
 	public void setId(Long id)
 	{
 		this.id = id;
-	}
-
-	public String getName()
-	{
-		return name;
-	}
-
-	public void setName(String name)
-	{
-		this.name = name;
 	}
 
 	public String getDescription()
@@ -83,18 +66,23 @@ public class Article extends BaseTimestamp
 		this.owner = owner;
 	}
 
-	public Topic getTopic()
+	public FeedEntity getFeed()
 	{
-		return topic;
+		return feed;
 	}
 
-	public void setTopic(Topic topic)
+	public void setFeed(FeedEntity feed)
 	{
-		this.topic = topic;
+		this.feed = feed;
 	}
 
-	public List<Comment> getComments()
+	public ArticleEntity getArticle()
 	{
-		return comments;
+		return article;
+	}
+
+	public void setArticle(ArticleEntity article)
+	{
+		this.article = article;
 	}
 }

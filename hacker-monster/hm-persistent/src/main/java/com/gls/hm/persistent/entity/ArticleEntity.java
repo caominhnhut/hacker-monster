@@ -10,32 +10,38 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "topic")
-@SequenceGenerator(name = "topic_seq", initialValue = 1)
-public class Topic extends BaseTimestamp
+@Table(name = "article")
+@SequenceGenerator(name = "article_seq", initialValue = 1)
+public class ArticleEntity extends BaseTimestamp
 {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "topic_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "article_seq")
 	private Long id;
 
 	@Column(name = "name")
 	private String name;
 
 	@Column(name = "description")
+	@Lob
 	private String description;
 
 	@ManyToOne
 	@JoinColumn(name = "owner_id")
 	private UserEntity owner;
 
-	@OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
-	private List<Article> articles = new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name = "topic_id")
+	private TopicEntity topic;
+
+	@OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
+	private List<CommentEntity> comments = new ArrayList<>();
 
 	public Long getId()
 	{
@@ -77,8 +83,18 @@ public class Topic extends BaseTimestamp
 		this.owner = owner;
 	}
 
-	public List<Article> getArticles()
+	public TopicEntity getTopic()
 	{
-		return articles;
+		return topic;
+	}
+
+	public void setTopic(TopicEntity topic)
+	{
+		this.topic = topic;
+	}
+
+	public List<CommentEntity> getComments()
+	{
+		return comments;
 	}
 }

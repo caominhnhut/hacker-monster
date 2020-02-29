@@ -46,16 +46,16 @@ public class UserEntity extends BaseTimestamp implements UserDetails
 	private List<Authority> authorities = new ArrayList<>();
 
 	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-	private List<Topic> topics = new ArrayList<>();
+	private List<TopicEntity> topics = new ArrayList<>();
 
 	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-	private List<Article> articles = new ArrayList<>();
+	private List<ArticleEntity> articles = new ArrayList<>();
 
 	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-	private List<Feed> feeds = new ArrayList<>();
+	private List<FeedEntity> feeds = new ArrayList<>();
 
 	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
-	private List<Comment> comments = new ArrayList<>();
+	private List<CommentEntity> comments = new ArrayList<>();
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities()
@@ -143,22 +143,22 @@ public class UserEntity extends BaseTimestamp implements UserDetails
 		return this.authorities;
 	}
 
-	public List<Topic> getTopics()
+	public List<TopicEntity> getTopics()
 	{
 		return topics;
 	}
 
-	public List<Article> getArticles()
-	{
-		return articles;
-	}
-
-	public List<Feed> getFeeds()
+	public List<FeedEntity> getFeeds()
 	{
 		return feeds;
 	}
 
-	public List<Comment> getComments()
+	public List<ArticleEntity> getArticles()
+	{
+		return articles;
+	}
+
+	public List<CommentEntity> getComments()
 	{
 		return comments;
 	}

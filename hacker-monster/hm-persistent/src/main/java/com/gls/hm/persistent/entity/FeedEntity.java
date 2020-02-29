@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "feed")
 @SequenceGenerator(name = "feed_seq", initialValue = 1)
-public class Feed extends BaseTimestamp
+public class FeedEntity extends BaseTimestamp
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "feed_seq")
@@ -40,7 +40,7 @@ public class Feed extends BaseTimestamp
 	private UserEntity owner;
 
 	@OneToMany(mappedBy = "feed", cascade = CascadeType.ALL)
-	private List<Comment> comments = new ArrayList<>();
+	private List<CommentEntity> comments = new ArrayList<>();
 
 	public Long getId()
 	{
@@ -92,7 +92,7 @@ public class Feed extends BaseTimestamp
 		this.owner = owner;
 	}
 
-	public List<Comment> getComments()
+	public List<CommentEntity> getComments()
 	{
 		return comments;
 	}

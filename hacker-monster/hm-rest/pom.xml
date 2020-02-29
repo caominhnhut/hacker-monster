@@ -58,21 +58,26 @@
       <version>2.1.1</version>
     </dependency>
 
-    <!--    internal libs-->
+    <!--    internal dependencies-->
     <dependency>
       <groupId>gls.hm</groupId>
       <artifactId>hm-user</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${parent.version}</version>
     </dependency>
     <dependency>
       <groupId>gls.hm</groupId>
       <artifactId>hm-persistent</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${parent.version}</version>
     </dependency>
     <dependency>
       <groupId>gls.hm</groupId>
       <artifactId>hm-liquibase</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>${parent.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>gls.hm</groupId>
+      <artifactId>hm-topic</artifactId>
+      <version>${parent.version}</version>
     </dependency>
   </dependencies>
 

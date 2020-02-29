@@ -76,7 +76,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
 						"/swagger-resources/**",
 						"/swagger-ui.html",
 						"/v2/api-docs",
-						"/authenticate").permitAll() // dont authenticate this particular request
+						"/authenticate",
+						"/no-auth/**").permitAll() // dont authenticate this particular request
 				.anyRequest().authenticated().and() // all other requests need to be authenticated
 				.addFilterBefore(new AuthenticationFilter(userDetailsService, tokenHelper), UsernamePasswordAuthenticationFilter.class); // Add a filter to validate the tokens with every request
 
@@ -91,7 +92,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
 		web.ignoring().antMatchers(
 				HttpMethod.POST,
 				"/authenticate",
-				"/user/register"
+				"/no-auth/**"
 		);
 		web.ignoring().antMatchers(
 				HttpMethod.GET,
