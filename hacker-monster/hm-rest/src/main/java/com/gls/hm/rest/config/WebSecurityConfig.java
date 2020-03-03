@@ -91,7 +91,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
 		web.ignoring().antMatchers(
 				HttpMethod.POST,
                 "/authenticate",
-				"/user/register"
+				"/no-auth/**"
 		);
 		web.ignoring().antMatchers(
 				HttpMethod.GET,

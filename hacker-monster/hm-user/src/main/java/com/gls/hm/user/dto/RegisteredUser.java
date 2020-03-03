@@ -1,21 +1,21 @@
 package com.gls.hm.user.dto;
 
-import com.sun.istack.internal.NotNull;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.Size;
 
+@FieldMatch(first = "password", second = "confirmedPassword", message = "The confirmed password fields must match")
 public class RegisteredUser {
 
     private Long id;
 
     @NotBlank
-    @Email(message = "Email should be valid")
+    @Email(message = "The email is not correct format")
     private String email;
 
-    @NotBlank
-    @Size(min=8)
+    @NotBlank(message = "The email should not be empty")
+    @Size(min=8,message = "The password should not be empty and have at least 8 letters")
     private String password;
 
     @NotBlank
@@ -53,13 +53,4 @@ public class RegisteredUser {
         this.confirmedPassword = confirmedPassword;
     }
 
-    public boolean checkPassword(){
-        if(password==confirmedPassword){
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 }

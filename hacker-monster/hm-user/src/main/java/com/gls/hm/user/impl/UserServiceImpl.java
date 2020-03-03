@@ -18,9 +18,12 @@ import com.gls.hm.user.service.UserService;
 public class UserServiceImpl implements UserService
 {
 	@Autowired
+
 	private UserRepository userRepository;
+
     @Autowired
     @Lazy
+
     private PasswordEncoder passwordEncoder;
 
 	@Override
@@ -34,7 +37,6 @@ public class UserServiceImpl implements UserService
 		UserEntity userEntity=new UserEntity();
 		userEntity.setEmail(registeredUser.getEmail());
 		userEntity.setPassword(passwordEncoder.encode(registeredUser.getPassword()));
-
 
 		UserEntity userResult = userRepository.create(userEntity);
 
