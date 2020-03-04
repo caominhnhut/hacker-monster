@@ -2,24 +2,29 @@ package com.gls.hm.user.dto;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.Size;
 
-@FieldMatch(first = "password", second = "confirmedPassword", message = "The confirmed password fields must match")
+import com.gls.hm.user.annotation.ValidEmail;
+import com.gls.hm.user.annotation.ValidPassword;
+import com.gls.hm.user.annotation.ValidPasswordMatches;
+
+@ValidPasswordMatches
 public class RegisteredUser {
 
     private Long id;
 
-    @NotBlank
-    @Email(message = "The email is not correct format")
+    @ValidEmail
+    @NotEmpty(message = "Please enter the email")
     private String email;
 
-    @NotBlank(message = "The email should not be empty")
-    @Size(min=8,message = "The password should not be empty and have at least 8 letters")
+    @NotEmpty(message = "Please enter the password")
+    @Size(min = 8, max = 20, message = "The password should have from 8 to 20 letters")
+    @ValidPassword
     private String password;
 
-    @NotBlank
-    private String confirmedPassword;
+    @NotEmpty(message = "Please enter the password for conformation")    private String confirmedPassword;
 
     public Long getId() {
         return id;

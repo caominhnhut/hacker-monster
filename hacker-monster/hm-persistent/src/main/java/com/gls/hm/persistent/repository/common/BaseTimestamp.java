@@ -1,4 +1,4 @@
-package com.gls.hm.persistent.entity.common;
+package com.gls.hm.persistent.repository.common;
 
 import java.io.Serializable;
 import java.util.Calendar;

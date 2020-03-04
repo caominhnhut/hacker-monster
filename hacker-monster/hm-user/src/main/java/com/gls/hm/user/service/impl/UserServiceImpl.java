@@ -1,10 +1,10 @@
-package com.gls.hm.user.impl;
+package com.gls.hm.user.service.impl;
 
 import java.util.Arrays;
 import java.util.List;
 
-import com.gls.hm.persistent.entity.user.UserEntity;
-import com.gls.hm.persistent.entity.user.UserRepository;
+import com.gls.hm.persistent.entity.UserEntity;
+import com.gls.hm.persistent.repository.user.UserRepository;
 import com.gls.hm.user.dto.RegisteredUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;

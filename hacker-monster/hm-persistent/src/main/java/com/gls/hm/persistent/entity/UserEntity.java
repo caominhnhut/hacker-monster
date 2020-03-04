@@ -1,6 +1,6 @@
-package com.gls.hm.persistent.entity.user;
+package com.gls.hm.persistent.entity;
 
-import com.gls.hm.persistent.entity.common.BaseTimestamp;
+import com.gls.hm.persistent.repository.common.BaseTimestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
