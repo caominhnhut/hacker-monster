@@ -11,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "comment")
 @SequenceGenerator(name = "comment_seq", initialValue = 1)
@@ -22,6 +24,7 @@ public class CommentEntity extends BaseTimestamp
 
 	@Column(name = "description")
 	@Lob
+	@Type(type = "org.hibernate.type.TextType")
 	private String description;
 
 	@ManyToOne

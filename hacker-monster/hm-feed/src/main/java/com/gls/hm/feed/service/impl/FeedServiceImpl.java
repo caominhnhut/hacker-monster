@@ -1,6 +1,7 @@
 package com.gls.hm.feed.service.impl;
 
-import java.sql.SQLDataException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,9 +10,11 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.gls.hm.feed.exception.HKException;
+import com.gls.hm.feed.model.Comment;
 import com.gls.hm.feed.model.Feed;
 import com.gls.hm.feed.model.User;
 import com.gls.hm.feed.service.FeedService;
+import com.gls.hm.persistent.entity.CommentEntity;
 import com.gls.hm.persistent.entity.FeedEntity;
 import com.gls.hm.persistent.entity.UserEntity;
 import com.gls.hm.persistent.repository.feed.FeedRepository;
@@ -49,5 +52,38 @@ public class FeedServiceImpl implements FeedService
 		}
 
 		return feed;
+	}
+
+	@Override
+	public List<Feed> getLatest(Long userId, int limit, int offset)
+	{
+		List<FeedEntity> feedEntities = feedRepository.getLatest(userId, limit, offset);
+		return feedEntities.stream().map(this::from).collect(Collectors.toList());
+	}
+
+	private Feed from(FeedEntity feedEntity)
+	{
+		Feed feed = new Feed();
+		feed.setId(feedEntity.getId());
+		feed.setDescription(feedEntity.getDescription());
+		feed.setNumOfLike(feedEntity.getNumOfLike());
+		feed.setNumOfSharing(feedEntity.getNumOfSharing());
+
+		UserEntity userEntity = feedEntity.getOwner();
+		User owner = new User(userEntity.getId(), userEntity.getEmail(), userEntity.getDescription());
+		feed.setOwner(owner);
+
+		List<Comment> comments = feedEntity.getComments().stream().map(this::from).collect(Collectors.toList());
+		feed.getComments().addAll(comments);
+
+		return feed;
+	}
+
+	private Comment from(CommentEntity commentEntity)
+	{
+		UserEntity userEntity = commentEntity.getOwner();
+		User owner = new User(userEntity.getId(), userEntity.getEmail(), userEntity.getDescription());
+
+		return new Comment(commentEntity.getDescription(), owner);
 	}
 }
