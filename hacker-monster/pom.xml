@@ -33,6 +33,7 @@
     <module>hm-liquibase</module>
     <module>hm-integration-test</module>
     <module>hm-feed</module>
+    <module>hm-file</module>
   </modules>
 
   <dependencies>

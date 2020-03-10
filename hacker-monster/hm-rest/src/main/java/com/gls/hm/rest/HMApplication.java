@@ -13,21 +13,22 @@ import com.gls.hm.rest.factory.contant.PackageConstants;
 @Configuration
 @SpringBootApplication
 @ComponentScan(basePackages = {
-		PackageConstants.ALL_MODULE,
-		PackageConstants.PERSISTENT_SERVICE
+        PackageConstants.ALL_MODULE,
+        PackageConstants.PERSISTENT_SERVICE
 })
 @EnableJpaRepositories(basePackages = {
-		PackageConstants.PERSISTENT_REPOSITORY
+        PackageConstants.PERSISTENT_REPOSITORY
 })
 @EntityScan(basePackages = {
-		PackageConstants.PERSISTENT_ENTITY
+        PackageConstants.PERSISTENT_ENTITY
 })
 @PropertySource("classpath:persistent.properties")
 @PropertySource("classpath:liquibase.properties")
+@PropertySource("classpath:file.properties")
 public class HMApplication
 {
-	public static void main(String[] args)
-	{
-		SpringApplication.run(HMApplication.class, args);
-	}
+    public static void main(String[] args)
+    {
+        SpringApplication.run(HMApplication.class, args);
+    }
 }
