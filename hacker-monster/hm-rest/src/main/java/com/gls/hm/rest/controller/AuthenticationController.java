@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.gls.hm.rest.factory.jwt.TokenHelper;
 import com.gls.hm.rest.model.AuthenticationRequest;
 import com.gls.hm.rest.model.AuthenticationResponse;
-import com.gls.hm.user.impl.UserDetailService;
+import com.gls.hm.user.service.impl.UserDetailService;
 import com.gls.hm.user.model.User;
 
 @Controller

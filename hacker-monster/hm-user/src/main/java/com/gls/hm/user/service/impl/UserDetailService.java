@@ -1,4 +1,4 @@
-package com.gls.hm.user.impl;
+package com.gls.hm.user.service.impl;
 
 import java.util.Arrays;
 

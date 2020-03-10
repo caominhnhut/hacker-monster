@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.gls.hm.rest.factory.jwt.TokenHelper;
-import com.gls.hm.user.impl.UserDetailService;
+import com.gls.hm.user.service.impl.UserDetailService;
 
 @Configuration
 @EnableWebSecurity
@@ -90,7 +90,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter
 		// TokenAuthenticationFilter will ignore the below paths
 		web.ignoring().antMatchers(
 				HttpMethod.POST,
-				"/authenticate"
+                "/authenticate",
+				"/no-auth/**"
 		);
 		web.ignoring().antMatchers(
 				HttpMethod.GET,
